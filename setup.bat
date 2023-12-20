@@ -1,5 +1,5 @@
 @echo off
-SET /P PROJECT_NAME=Enter the project name: 
+SET /P PROJECT_NAME=Enter a new project name: 
 SET DEV_DIR=projects
 SET SRC_DIR=src
 SET SETUP_FILES_PATH=..\..\setup_files
