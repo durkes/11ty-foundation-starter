@@ -12,7 +12,7 @@ The setup batch script is for Windows. Before you begin, ensure you have install
 3. Navigate to the cloned repository's directory
 4. Run the setup script:
 ```
-./setup
+./setup.bat
 ```
 
 ## Development
@@ -42,3 +42,11 @@ Edit the source files in the `src` directory to customize your project:
 - Modify layouts in the `_layouts` directory
 - Add or change styles in the `css` directory
 - Update or add page content in the `pages` directory
+
+## Future Compatibility
+
+This project uses the latest versions of npm packages. While this ensures access to the newest features, it can lead to future compatibility issues.
+
+- In case of build failures or compatibility issues with new projects, you may need to adjust the setup files to use specific, older package versions
+- Refer to the `package-lock.json` in the example project for a snapshot of working versions
+- If this repo needs updated for this reason, please open an issue 🙏🤝
