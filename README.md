@@ -43,6 +43,7 @@ Edit the source files in the `src` directory to customize your project:
 
 - Modify layouts in the `_layouts` directory.
 - Add or change styles in the `css` directory.
+- For JavaScript, use the `js` directory. Edit `main.js` to include custom scripts or import additional modules. If you're not using JavaScript, you can comment out unnecessary imports.
 - Update or add page content in the `pages` directory.
 
 ## Future Compatibility
