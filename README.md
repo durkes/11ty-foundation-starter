@@ -1,6 +1,6 @@
-# Eleventy + Foundation Project Starter
+# Eleventy + Foundation Starter
 
-**Eleventy + Foundation Starter**: A static site generator setup using [Eleventy](https://www.11ty.dev/) (also known as 11ty) for its simple, fast static site generation, and [Foundation](https://get.foundation/) for a flexible, customizable front-end. Learn more about Eleventy in their [documentation](https://www.11ty.dev/docs/) and Foundation in their [documentation](https://get.foundation/sites/docs/).
+A comprehensive setup for static site development using [Eleventy](https://www.11ty.dev/) (11ty) for its easy templating and fast build process, and [Foundation](https://get.foundation/) for a responsive, customizable front-end. Includes SCSS preprocessing with autoprefixer, JavaScript bundling and transpilation, and complete code minification.
 
 ## Prerequisites
 
