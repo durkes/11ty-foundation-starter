@@ -15,6 +15,7 @@ call npm install @11ty/eleventy nunjucks foundation-sites sass
 
 echo Installing additional packages...
 call npm install postcss autoprefixer postcss-cli --save-dev
+call npm install jquery @rollup/plugin-babel @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-terser rollup @babel/core @babel/preset-env --save-dev
 
 echo Creating directory structure...
 mkdir %SRC_DIR%
@@ -23,17 +24,21 @@ mkdir %SRC_DIR%\_includes
 mkdir %SRC_DIR%\_layouts
 mkdir %SRC_DIR%\assets
 mkdir %SRC_DIR%\css
+mkdir %SRC_DIR%\js
 mkdir %SRC_DIR%\pages
 
 echo Copying setup files...
 copy "%SETUP_FILES_PATH%\.eleventy.js" "."
 copy "%SETUP_FILES_PATH%\postcss.config.js" "."
+copy "%SETUP_FILES_PATH%\rollup.config.mjs" "."
+copy "%SETUP_FILES_PATH%\babel.config.js" "."
 copy "%SETUP_FILES_PATH%\base.njk" "%SRC_DIR%\_layouts\"
 copy "%SETUP_FILES_PATH%\index.njk" "%SRC_DIR%\"
 copy "%SETUP_FILES_PATH%\foundation.njk" "%SRC_DIR%\pages\"
 copy "%SETUP_FILES_PATH%\main.scss" "%SRC_DIR%\css\"
 copy "%SETUP_FILES_PATH%\_settings.scss" "%SRC_DIR%\css\"
 copy "%SETUP_FILES_PATH%\custom.scss" "%SRC_DIR%\css\"
+copy "%SETUP_FILES_PATH%\main.js" "%SRC_DIR%\js\"
 
 echo Updating package.json with start and build scripts...
 echo {"scripts": { "start": "eleventy --serve", "build": "eleventy", "clean": "if exist _site rmdir /s /q _site" }} > temp_scripts.json
