@@ -17,7 +17,7 @@ The setup batch script is for Windows. Before you begin, ensure you have install
 ./setup.bat
 ```
 
-## Development
+## Development Mode
 
 After setting up the project, you can start the development server from inside the project directory:
 
@@ -26,16 +26,16 @@ cd projects/example
 npm start
 ```
 
-This command starts a local server and watches for file changes with live reloading.
+This command starts a local server and watches for file changes with live reloading. While in this mode, CSS, JavaScript, and HTML files are **not minified**, allowing for easier debugging and faster reloads.
 
-## Building the Project
+## Production Build
 
 To build the project for production, run:
 ```
 npm run build
 ```
 
-This command compiles the site into static files in the `_site` directory.
+This command compiles the site into static files in the `_site` directory. During this build process, CSS, JavaScript, and HTML files are **minified** for faster site download speeds.
 
 ## Customization
 
