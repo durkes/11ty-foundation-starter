@@ -1,7 +1,9 @@
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
+
+const isProdBuild = process.env.PROD_BUILD === 'true';
 
 export default {
     input: 'src/js/main.js',
@@ -16,6 +18,6 @@ export default {
             presets: ['@babel/preset-env'],
             babelHelpers: 'bundled'
         }),
-        terser(), // For minification
+        isProdBuild && terser(), // minification
     ]
 };
