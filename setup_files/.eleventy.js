@@ -13,7 +13,7 @@ const color = {
     cyan: msg => `\x1b[36m${msg}\x1b[0m`
 };
 
-let isBuild = false;
+let isProdBuild = false;
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/css/**/*.css');
     eleventyConfig.addPassthroughCopy('src/assets');
@@ -21,7 +21,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget('./src/js/**/*.js');
 
     eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
-        if (isBuild && outputPath && outputPath.endsWith('.html')) {
+        if (isProdBuild && outputPath && outputPath.endsWith('.html')) {
             console.log('Minifying', outputPath);
 
             let minified = htmlmin(content, {
@@ -36,9 +36,10 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.on('eleventy.before', async ({ dir, runMode, outputMode }) => {
-        isBuild = runMode === 'build';
+        isProdBuild = runMode === 'build';
 
-        if (isBuild) {
+        if (isProdBuild) {
+            process.env.PROD_BUILD = 'true'; // for separate processes like rollup
             console.log(color.cyan('Deleting last build to remove any extra files'));
             execSync('npm run clean');
         }
@@ -51,18 +52,18 @@ module.exports = function (eleventyConfig) {
         if (didDirChange('./src/css')) {
             console.log(color.cyan('Processing src/css'));
 
-            const result = sass.renderSync({ file: 'src/css/main.scss', outputStyle: isBuild ? 'compressed' : 'expanded' });
+            const result = sass.renderSync({ file: 'src/css/main.scss', outputStyle: isProdBuild ? 'compressed' : 'expanded' });
             fs.mkdirSync('./_site/css', { recursive: true });
             fs.writeFileSync('./_site/css/main.css', result.css);
 
-            if (isBuild) {
+            if (isProdBuild) {
                 execSync('npx postcss ./_site/css/main.css --use autoprefixer --no-map -o ./_site/css/main.css');
             }
         }
     });
 
     eleventyConfig.on('eleventy.after', async ({ dir, results, runMode, outputMode }) => {
-        if (isBuild) {
+        if (isProdBuild) {
             console.log(color.yellow('[config] dir:'), dir);
         }
     });
@@ -78,7 +79,7 @@ module.exports = function (eleventyConfig) {
 
 const watchStates = {};
 function didDirChange(directory) {
-    if (isBuild) {
+    if (isProdBuild) {
         // prevent watcher and always update on build
         return true;
     }
