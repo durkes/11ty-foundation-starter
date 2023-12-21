@@ -1,4 +1,5 @@
 const sass = require('sass');
+const htmlmin = require('html-minifier').minify;
 const fs = require('fs');
 const execSync = require('child_process').execSync;
 
@@ -18,6 +19,21 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets');
     eleventyConfig.addWatchTarget('./src/css/**/*.scss');
     eleventyConfig.addWatchTarget('./src/js/**/*.js');
+
+    eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+        if (isBuild && outputPath && outputPath.endsWith('.html')) {
+            console.log('Minifying', outputPath);
+
+            let minified = htmlmin(content, {
+                useShortDoctype: true,
+                removeComments: true,
+                collapseWhitespace: true
+            });
+            return minified;
+        }
+
+        return content;
+    });
 
     eleventyConfig.on('eleventy.before', async ({ dir, runMode, outputMode }) => {
         isBuild = runMode === 'build';
