@@ -1,10 +1,10 @@
 # Eleventy + Foundation Starter
 
-A comprehensive setup for static site development using [Eleventy](https://www.11ty.dev/) (11ty) for its easy templating and fast build process, and [Foundation](https://get.foundation/) for a responsive, customizable front-end. Includes SCSS preprocessing with autoprefixer, JavaScript bundling and transpilation, and complete code minification.
+A comprehensive setup for static site development using [Eleventy](https://www.11ty.dev/) (11ty) for easy templating and fast builds, and [Foundation](https://get.foundation/) for a responsive, customizable front-end. Includes SCSS preprocessing, CSS autoprefixer, JavaScript bundling and transpilation, and complete code minification.
 
 ## Prerequisites
 
-The setup batch script is for Windows. Before you begin, ensure you have installed Node.js and npm on your system.
+The setup batch script runs on Windows (if you're using Mac/Linux, you can skip this step and just customize the example project in this repo). Before you begin, ensure you have installed Node.js and npm on your system.
 
 ## Setup
 
