@@ -19,8 +19,16 @@
     "sass": "^1.69.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "autoprefixer": "^10.4.16",
+    "jquery": "^3.7.1",
     "postcss": "^8.4.32",
-    "postcss-cli": "^11.0.0"
+    "postcss-cli": "^11.0.0",
+    "rollup": "^4.9.1"
   }
 }
