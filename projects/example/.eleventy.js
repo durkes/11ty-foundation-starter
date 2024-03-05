@@ -39,7 +39,7 @@ module.exports = function (eleventyConfig) {
         isProdBuild = runMode === 'build';
 
         if (isProdBuild) {
-            process.env.PROD_BUILD = 'true'; // for separate processes like rollup
+            process.env.BUILD_ENV = 'production'; // for separate processes like rollup
             console.log(color.cyan('Deleting last build to remove any extra files'));
             execSync('npm run clean');
         }

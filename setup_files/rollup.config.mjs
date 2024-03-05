@@ -3,7 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
 
-const isProdBuild = process.env.PROD_BUILD === 'true';
+const isProdBuild = process.env.BUILD_ENV === 'production';
 
 export default {
     input: 'src/js/main.js',
