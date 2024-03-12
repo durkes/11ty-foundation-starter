@@ -52,12 +52,12 @@ module.exports = function (eleventyConfig) {
         if (didDirChange('./src/css')) {
             console.log(color.cyan('Processing src/css'));
 
-            const result = sass.renderSync({ file: 'src/css/main.scss', outputStyle: isProdBuild ? 'compressed' : 'expanded' });
+            const result = sass.renderSync({ file: 'src/css/_bundle.scss', outputStyle: isProdBuild ? 'compressed' : 'expanded' });
             fs.mkdirSync('./_site/css', { recursive: true });
-            fs.writeFileSync('./_site/css/main.css', result.css);
+            fs.writeFileSync('./_site/css/bundle.css', result.css);
 
             if (isProdBuild) {
-                execSync('npx postcss ./_site/css/main.css --use autoprefixer --no-map -o ./_site/css/main.css');
+                execSync('npx postcss ./_site/css/bundle.css --use autoprefixer --no-map -o ./_site/css/bundle.css');
             }
         }
     });

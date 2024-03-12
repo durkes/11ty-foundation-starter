@@ -35,10 +35,12 @@ copy "%SETUP_FILES_PATH%\babel.config.js" "."
 copy "%SETUP_FILES_PATH%\base.njk" "%SRC_DIR%\_layouts\"
 copy "%SETUP_FILES_PATH%\index.njk" "%SRC_DIR%\"
 copy "%SETUP_FILES_PATH%\foundation.njk" "%SRC_DIR%\pages\"
-copy "%SETUP_FILES_PATH%\main.scss" "%SRC_DIR%\css\"
+copy "%SETUP_FILES_PATH%\_bundle.scss" "%SRC_DIR%\css\"
+copy "%SETUP_FILES_PATH%\_lib.scss" "%SRC_DIR%\css\"
 copy "%SETUP_FILES_PATH%\_settings.scss" "%SRC_DIR%\css\"
 copy "%SETUP_FILES_PATH%\custom.scss" "%SRC_DIR%\css\"
-copy "%SETUP_FILES_PATH%\main.js" "%SRC_DIR%\js\"
+copy "%SETUP_FILES_PATH%\_bundle.js" "%SRC_DIR%\js\"
+copy "%SETUP_FILES_PATH%\custom.js" "%SRC_DIR%\js\"
 
 echo Updating package.json with start and build scripts...
 echo {"scripts": { "start": "eleventy --serve", "build": "eleventy", "clean": "if exist _site rmdir /s /q _site" }} > temp_scripts.json

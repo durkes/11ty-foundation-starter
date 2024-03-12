@@ -1,15 +1,8 @@
-.container {
-    margin: 0 auto;
-    padding: 0 1rem;
-    max-width: $global-width;
+html {
+    font-size: 16px;
+}
 
-    .row {
-        margin-left: map-get($grid-column-gutter, small) * -0.5;
-        margin-right: map-get($grid-column-gutter, small) * -0.5;
-
-        @include breakpoint(medium) {
-            margin-left: map-get($grid-column-gutter, medium) * -0.5;
-            margin-right: map-get($grid-column-gutter, medium) * -0.5;
-        }
-    }
+body {
+    background-color: #fff;
+    font-size: 1rem;
 }
