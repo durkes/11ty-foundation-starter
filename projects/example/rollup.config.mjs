@@ -6,7 +6,7 @@ import terser from '@rollup/plugin-terser';
 const isProdBuild = process.env.BUILD_ENV === 'production';
 
 export default {
-    input: 'src/js/main.js',
+    input: 'src/js/_bundle.js',
     output: {
         file: '_site/js/bundle.js',
         format: 'iife', // 'iife' or 'esm' depending on your requirement
