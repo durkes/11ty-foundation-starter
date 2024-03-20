@@ -40,6 +40,7 @@ copy "%SETUP_FILES_PATH%\_lib.scss" "%SRC_DIR%\css\"
 copy "%SETUP_FILES_PATH%\_settings.scss" "%SRC_DIR%\css\"
 copy "%SETUP_FILES_PATH%\custom.scss" "%SRC_DIR%\css\"
 copy "%SETUP_FILES_PATH%\_bundle.js" "%SRC_DIR%\js\"
+copy "%SETUP_FILES_PATH%\setup.js" "%SRC_DIR%\js\"
 copy "%SETUP_FILES_PATH%\custom.js" "%SRC_DIR%\js\"
 
 echo Updating package.json with start and build scripts...
