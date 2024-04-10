@@ -8,7 +8,7 @@
     "start": "eleventy --serve",
     "clean": "rimraf _site && rimraf _dist",
     "dist": "copyfiles -u 1 \"_site/**/*.*\" _dist && rimraf _site",
-    "build": "npm run clean && eleventy && npm run dist"
+    "build": "eleventy && npm run dist"
   },
   "keywords": [],
   "author": "",

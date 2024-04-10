@@ -44,7 +44,7 @@ copy "%SETUP_FILES_PATH%\setup.js" "%SRC_DIR%\js\"
 copy "%SETUP_FILES_PATH%\custom.js" "%SRC_DIR%\js\"
 
 echo Updating package.json with start and build scripts...
-echo {"scripts": { "start": "eleventy --serve", "clean": "rimraf _site && rimraf _dist", "dist": "copyfiles -u 1 \"_site/**/*.*\" _dist && rimraf _site", "build": "npm run clean && eleventy && npm run dist" }} > temp_scripts.json
+echo {"scripts": { "start": "eleventy --serve", "clean": "rimraf _site && rimraf _dist", "dist": "copyfiles -u 1 \"_site/**/*.*\" _dist && rimraf _site", "build": "eleventy && npm run dist" }} > temp_scripts.json
 call node -e "let pkg=require('./package.json'); let newScripts=require('./temp_scripts.json'); Object.assign(pkg.scripts, newScripts.scripts); require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
 del temp_scripts.json
 
