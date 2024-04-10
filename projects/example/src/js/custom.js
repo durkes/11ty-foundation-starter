@@ -2,5 +2,4 @@ const $ = window.$; // not really necessary (depending on linter; but good pract
 
 $(function () {
     // custom logic here
-    console.log('inside customer');
 });
