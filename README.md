@@ -35,7 +35,7 @@ To build the project for production, run:
 npm run build
 ```
 
-This command compiles the site into static files in the `_site` directory. During this build process, CSS, JavaScript, and HTML files are **minified** for faster site download speeds.
+This command compiles the site into static files in the `_dist` directory. During this build process, CSS, JavaScript, and HTML files are **minified** for faster site download speeds.
 
 ## Customization
 
