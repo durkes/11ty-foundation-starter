@@ -14,7 +14,7 @@ echo Installing 11ty, Nunjucks, Foundation, and Dart Sass...
 call npm install @11ty/eleventy nunjucks foundation-sites sass html-minifier
 
 echo Installing additional packages...
-call npm install postcss autoprefixer postcss-cli --save-dev
+call npm install postcss autoprefixer postcss-cli copyfiles rimraf --save-dev
 call npm install jquery @rollup/plugin-babel @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-terser rollup @babel/core @babel/preset-env --save-dev
 
 echo Creating directory structure...
@@ -44,7 +44,7 @@ copy "%SETUP_FILES_PATH%\setup.js" "%SRC_DIR%\js\"
 copy "%SETUP_FILES_PATH%\custom.js" "%SRC_DIR%\js\"
 
 echo Updating package.json with start and build scripts...
-echo {"scripts": { "start": "eleventy --serve", "build": "eleventy", "clean": "if exist _site rmdir /s /q _site" }} > temp_scripts.json
+echo {"scripts": { "start": "eleventy --serve", "clean": "rimraf _site && rimraf _dist", "dist": "copyfiles -u 1 \"_site/**/*.*\" _dist && rimraf _site", "build": "npm run clean && eleventy && npm run dist" }} > temp_scripts.json
 call node -e "let pkg=require('./package.json'); let newScripts=require('./temp_scripts.json'); Object.assign(pkg.scripts, newScripts.scripts); require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
 del temp_scripts.json
 
